@@ -17,7 +17,7 @@ public class HomeController {
     CovidDataService covidDataService;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String index(Model model) {
         List<LocationStats> allStats = covidDataService.getAllStats();
         DecimalFormat formatter = new DecimalFormat("###,###");
 
@@ -30,6 +30,6 @@ public class HomeController {
         model.addAttribute("locationStats", allStats);
         model.addAttribute("totalReportedCases", totalReportedCases);
         model.addAttribute("totalNewCases", totalNewCases);
-        return "home";
+        return "index";
     }
 }
